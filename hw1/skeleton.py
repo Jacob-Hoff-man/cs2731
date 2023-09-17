@@ -380,5 +380,41 @@ def part_2(words):
 if __name__ == "__main__":
   words_part_1 = [ 'juliet', 'king', 'harry']
   words_part_2 = ['caucasian', 'caucasion', 'batwoman', 'batgirl', 'islamic', 'hijabs', 'hijabis', 'villagers', 'ghetto', 'slum', 'tribe', 'tribal', 'panhandling', 'spy', 'spying', 'mr', 'mrs', 'miss', 'ms']
+  identity_labels = [
+    'disabled',
+    'handicap',
+    'handicapped',
+    'mentally',
+    'mental',
+    'autism',
+    'lesbian',
+    'lesbians',
+    'gay',
+    'bisexual',
+    'pansexual',
+    'straight',
+    'muslim',
+    'christian',
+    'jew',
+    'jewish',
+    'buddhist',
+    'hindu',
+    'atheist',
+    'muslims',
+    'christians',
+    'jews',
+    'buddhists',
+    'atheists',
+    'old',
+    'elderly',
+    'retired',
+    'teenage',
+    'young',
+    'senior',
+    'seniors',
+    'teenager',
+    'teenagers'
+    ]
   # part_1(words_part_1)
-  part_2(words_part_2)
+  # part_2(words_part_2)
+  part_2(identity_labels)
