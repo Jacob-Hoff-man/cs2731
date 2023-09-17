@@ -3,6 +3,12 @@
 ## HW 1
 
 - create a virtual enviornment using the `requirements.txt` file.
+```
+    python -m venv nlp-env
+    source nlp-env/bin/activate
+    pip install -r requirements.txt
+    
+```
 
 - from inside the `/cs2731/hw1/` directory, run the script with the following command:
 
