@@ -1,4 +1,5 @@
 /nlp_env
+/nlp
 term_context_matrix.csv
 term_document_matrix.csv
 tf_idf_matrix.csv
