@@ -1,3 +1,4 @@
+/nlp-env
 /nlp_env
 /nlp
 term_context_matrix.csv
@@ -5,3 +6,4 @@ term_document_matrix.csv
 tf_idf_matrix.csv
 ppmi_matrix.csv
 .DS_Store
+__pycache__

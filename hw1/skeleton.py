@@ -25,7 +25,7 @@ def read_in_shakespeare():
 
     tuples = []
 
-    with open("shakespeare_plays.csv") as f:
+    with open('datasets/shakespeare_plays.csv') as f:
         csv_reader = csv.reader(f, delimiter=";")
         for row in csv_reader:
             play_name = row[1]
@@ -57,7 +57,7 @@ def read_in_snli():
 
     tuples = []
 
-    with open("snli.csv") as f:
+    with open('datasets/snli.csv') as f:
         csv_reader = csv.reader(f, delimiter=",")
         for row in csv_reader:
             sentenceName = row[0]
@@ -381,40 +381,74 @@ if __name__ == "__main__":
   words_part_1 = [ 'juliet', 'king', 'harry']
   words_part_2 = ['caucasian', 'caucasion', 'batwoman', 'batgirl', 'islamic', 'hijabs', 'hijabis', 'villagers', 'ghetto', 'slum', 'tribe', 'tribal', 'panhandling', 'spy', 'spying', 'mr', 'mrs', 'miss', 'ms']
   identity_labels = [
-    'disabled',
-    'handicap',
-    'handicapped',
-    'mentally',
-    'mental',
-    'autism',
-    'lesbian',
-    'lesbians',
-    'gay',
-    'bisexual',
-    'pansexual',
-    'straight',
-    'muslim',
-    'christian',
-    'jew',
-    'jewish',
-    'buddhist',
-    'hindu',
-    'atheist',
-    'muslims',
-    'christians',
-    'jews',
-    'buddhists',
-    'atheists',
-    'old',
-    'elderly',
-    'retired',
-    'teenage',
-    'young',
-    'senior',
-    'seniors',
-    'teenager',
-    'teenagers'
-    ]
+    'woman',
+    'women',
+    'man',
+    'men',
+    'girl',
+    'girls',
+    'boy',
+    'boys',
+    'she',
+    'he',
+    'her',
+    'him',
+    'his',
+    'female',
+    'male',
+    'mother',
+    'father',
+    'sister',
+    'brother',
+    'daughter',
+    'son',
+    'feminine',
+    'masculine',
+    'androgynous',
+    'black',
+    'asian',
+    'hispanic',
+    'white',
+    'african',
+    'american',
+    'latino',
+    'latina',
+    'caucasian',
+    'africans',
+    'australian',
+    'australians',
+    'asians',
+    'european',
+    'europeans',
+    'chinese',
+    'indian',
+    'indonesian',
+    'brazilian',
+    'pakistani',
+    'russian',
+    'nigerian',
+    'japanese',
+    'mexican',
+    'german',
+    'egyptian',
+    'ethiopian',
+    'turkish',
+    'thai',
+    'french',
+    'italian',
+    'korean',
+    'spanish',
+    'dutch',
+    'swiss',
+    'saudi',
+    'belgian',
+    'polish',
+    'israeli',
+    'irish',
+    'greek',
+    'mongolian',
+    'armenian',
+  ]
   # part_1(words_part_1)
   # part_2(words_part_2)
   part_2(identity_labels)
