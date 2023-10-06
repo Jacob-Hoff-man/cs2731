@@ -1,5 +1,5 @@
 import numpy as np
-from LogisticRegression import LogisticRegression as Lr
+from logistic_regression import LogisticRegression as Lr
 
 X = np.array([
     (2, 1),
