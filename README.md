@@ -1,6 +1,6 @@
 # CS2710
 
-## HW 1
+## HW 1 - Naive Bayes
 
 - create a virtual enviornment using the `requirements.txt` file.
 ```
@@ -41,7 +41,7 @@
         part_2(identity_labels)
 ```
 
-## HW 2
+## HW 2 - Text Classification
 
 - copy the held-out test dataset into the `/cs2731/datasets/` directory.
 
