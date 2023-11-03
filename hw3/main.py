@@ -2,7 +2,7 @@ import argparse
 from n_grams import NGrams
 import numpy as np
 import pandas as pd
-
+import math
 
 data_file_paths = {
     'en': 'datasets/hw3_data/training.en',
@@ -120,6 +120,40 @@ def get_interpolated_trigrams_probabilities(trigrams, bigrams, unigrams, w1 = 1 
     
     return probability_model
 
+def perplexity(text, model, n):
+    """ Args:
+                text: a string of characters
+                model: a matrix or df of the probabilities with rows as prefixes, columns as suffixes.
+                You can modify this depending on how you set up your model.
+                n: n-gram order of the model
+
+            Acknowledgment: 
+        https://towardsdatascience.com/perplexity-intuition-and-derivation-105dd481c8f3 
+        https://courses.cs.washington.edu/courses/csep517/18au/
+        ChatGPT with GPT-3.5
+        """
+
+    # FILL IN: Remove any unseen characters from the text that have no unigram probability in the language
+    text = text[:-1] #removing new line character
+    text = str.lower(text)
+    text = '<s> ' + text + ' </s>'
+    
+    N = len(text)
+    char_probs = []
+    for i in range(n-1, N):
+        prefix = text[i-n+1:i]
+        suffix = text[i]
+        # FILL IN: look up the probability in the model of the suffix given the prefix
+        if n == 1 and suffix in model.index:
+            prob = model.loc[suffix].iloc[0]
+        elif prefix in model.index and suffix in model.columns:
+            prob = model.loc[prefix, suffix]
+        if prob != 0:
+            char_probs.append(math.log2(prob))
+            neg_log_lik = -1 * sum(char_probs) # negative log-likelihood of the text
+            ppl = 2 ** (neg_log_lik/(N - n + 1)) # 2 to the power of the negative log likelihood of the words divided by #ngrams
+    return ppl
+
 # main
 # cli args
 parser = argparse.ArgumentParser()
@@ -143,7 +177,6 @@ if args.smoothed != None:
     model_type = 'smoothed'
 if args.interpolation != None:
     model_type = 'interpolation'
-
 
 # get n_gram_models for files
 data_file_path_keys = list(data_file_paths.keys())
@@ -208,6 +241,29 @@ for key in data_file_path_keys:
             save_dataframe_to_file(bigrams_prob_model_df, bigram_file_name)
             save_dataframe_to_file(trigrams_prob_model_df, trigram_file_name)
 
-# get perplexity
+# get perplexity for all lines in test file
+f = open(data_file_paths['test'])
+for key in data_file_path_keys:
+    f.seek(0)
+    if key != 'test':
+        unigrams_model_df = n_gram_probability_model_dfs[key][0]
+        bigrams_model_df = n_gram_probability_model_dfs[key][1]
+        trigrams_model_df = n_gram_probability_model_dfs[key][2]
+        total_unigram_perplexity = 0
+        total_bigram_perplexity = 0
+        total_trigram_perplexity = 0
+        string_count = 0
+        for content in f:
+            string_count = string_count + 1
+            total_unigram_perplexity = perplexity(content, unigrams_model_df, 1)
+            total_bigram_perplexity = perplexity(content, bigrams_model_df, 2)
+            total_trigram_perplexity = perplexity(content, trigrams_model_df, 3)
+        average_unigram_perplexity = total_unigram_perplexity / string_count
+        average_bigram_perplexity = total_bigram_perplexity / string_count
+        average_trigram_perplexity = total_trigram_perplexity / string_count
+        print(key, ' unigram model average perplexity: ', average_unigram_perplexity)
+        print(key, ' bigram model average perplexity: ', average_bigram_perplexity)
+        print(key, ' trigram model average perplexity: ', average_trigram_perplexity)
+
 
 
