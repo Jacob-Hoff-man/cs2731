@@ -154,7 +154,6 @@ def perplexity(text, model, n):
             ppl = 2 ** (neg_log_lik/(N - n + 1)) # 2 to the power of the negative log likelihood of the words divided by #ngrams
     return ppl
 
-def 
 # main
 # cli args
 parser = argparse.ArgumentParser()
