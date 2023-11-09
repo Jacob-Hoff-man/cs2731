@@ -5,10 +5,10 @@ import pandas as pd
 import math
 
 data_file_paths = {
-    'en': 'datasets/hw3_data/training.en',
-    'es': 'datasets/hw3_data/training.es',
-    'de': 'datasets/hw3_data/training.de',
-    'test': 'datasets/hw3_data/test'
+    'en': 'datasets/hw3-data/training.en',
+    'es': 'datasets/hw3-data/training.es',
+    'de': 'datasets/hw3-data/training.de',
+    'test': 'datasets/hw3-data/test'
 }
 
 def convert_probability_model_to_dataframe(arr, index, columns):
@@ -16,6 +16,7 @@ def convert_probability_model_to_dataframe(arr, index, columns):
 
 def save_dataframe_to_file(df, file_name):
     df.to_csv(file_name, index=True, header=True)
+    
 
 def convert_bigram_tuples_to_strings(tuples_list):
     bigrams = []
