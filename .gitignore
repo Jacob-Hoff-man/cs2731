@@ -24,3 +24,7 @@ de_interpolated_bigrams.csv
 de_interpolated_trigrams.csv
 es_interpolated_bigrams.csv
 es_interpolated_trigrams.csv
+
+# final project
+/datasets/course-slides
+/final-project/course-concept-labels/
