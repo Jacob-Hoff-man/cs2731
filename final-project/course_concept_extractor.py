@@ -19,14 +19,15 @@ def convert_pdf_course_slides_to_string(path, debug=False):
   
 class CourseConceptExtractor():
     def __init__(self, data_dirs, debug=False):
-        self.dir_names = os.listdir(data_dirs['slides'])
+        self.concept_labels_dir_path = 'final-project/course-concept-labels/'
+        self.dir_names = {}
         self.course_strings = {}
         self.course_dfs = {}
-        self.concept_labels_dir_path = 'final-project/course-concept-labels/'
 
         for data_dirs_key in data_dirs:
             if debug:
                 print(data_dirs_key, 'data directories')
+            self.dir_names[data_dirs_key] = os.listdir(data_dirs[data_dirs_key])
             for dir in self.dir_names:
                 if dir.startswith('.'):
                     continue
