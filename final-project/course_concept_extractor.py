@@ -6,7 +6,7 @@ def convert_df_to_csv(df, file_name):
     df.to_csv(file_name, index=False, header=True)
 
 def convert_pdf_course_slides_to_string(path, debug=False):
-    if debug :
+    if debug:
         print('reading', path)
     reader = PdfReader(path)
     total_strings = []
@@ -28,7 +28,7 @@ class CourseConceptExtractor():
             if debug:
                 print(data_dirs_key, 'data directories')
             self.dir_names[data_dirs_key] = os.listdir(data_dirs[data_dirs_key])
-            for dir in self.dir_names:
+            for dir in self.dir_names[data_dirs_key]:
                 if dir.startswith('.'):
                     continue
                 if debug:
