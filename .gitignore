@@ -26,5 +26,12 @@ es_interpolated_bigrams.csv
 es_interpolated_trigrams.csv
 
 # final project
-/datasets/course-slides
-/final-project/course-concept-labels/
+/final-project-jah292-rek94/data/*
+/final-project-jah292-rek94/data_text/*
+/final-project-jah292-rek94/final_slides_json/*
+/final-project-jah292-rek94/final_slides_json_distant/*
+/final-project-jah292-rek94/final_slides_json_manual/*
+/final-project-jah292-rek94/json_pair_slides/*
+/final-project-jah292-rek94/json_slides/*
+/final-project-jah292-rek94/final_slides_json_distant.zip
+/final-project-jah292-rek94/final_slides_json_manual.zip

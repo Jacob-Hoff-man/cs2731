@@ -1,6 +1,6 @@
 # CS2710
 
-## HW 1 - Naive Bayes
+## HW 1 - Naive Ba
 
 - create a virtual enviornment using the `requirements.txt` file.
 ```
